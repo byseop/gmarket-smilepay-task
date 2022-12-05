@@ -29,7 +29,7 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: #fff;
+    background: rgba(0,0, 0, 0.3);
   }
 
   a {
