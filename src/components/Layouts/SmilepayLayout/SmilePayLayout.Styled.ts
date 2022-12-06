@@ -8,7 +8,7 @@ const StyledSmilepayLayout = styled(SmilepayLayout)`
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  background: var(--white);
+  background: var(--bg-gray-1);
   border-radius: 4px;
   box-shadow: 0 3px 7px 0 rgb(0 0 0 / 20%);
 `;

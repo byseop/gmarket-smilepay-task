@@ -26,6 +26,16 @@ const GlobalStyle = createGlobalStyle`
   :root {
     --white: #fff;
     --black: #000;
+
+    --primary-1: #fed303;
+
+    --bg-gray-1: #f1f1f1;
+
+    --border-gray-1: #e6e6e6;
+
+    --text-black-1: #222222;
+    --text-black-2: #333333;
+    --text-black-3: #444444;
   }
 
   body {
