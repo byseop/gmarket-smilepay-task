@@ -23,6 +23,7 @@ const AddCardForm: React.FC<IProps> = ({ className, value, onChange }) => {
     maxLength: number;
   }>();
 
+  /** 일반 인풋 입력이벤트 */
   const handleChangeNormalInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!value) return;
     if (/^[0-9]+$/.test(e.target.value)) {
@@ -34,6 +35,7 @@ const AddCardForm: React.FC<IProps> = ({ className, value, onChange }) => {
     }
   };
 
+  /** 보안키패드 열림 버튼 클릭이벤트 */
   const handleClickSecurityButton = (
     e: React.MouseEvent<HTMLButtonElement>
   ) => {
@@ -46,10 +48,13 @@ const AddCardForm: React.FC<IProps> = ({ className, value, onChange }) => {
     });
   };
 
+  /** 일반인풋에 포커스이벤트 */
   const handleFocustNormalInput = () => {
+    // 일반 인풋에 포커스시 보안키패드 종료
     setSelectedSecureInput(undefined);
   };
 
+  /** 보안키패드 입력 이벤트 */
   const handleClickSecureKeypad = useCallback(
     (
       target: {
