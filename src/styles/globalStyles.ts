@@ -30,12 +30,17 @@ const GlobalStyle = createGlobalStyle`
     --primary-1: #fed303;
 
     --bg-gray-1: #f1f1f1;
-
+    --bg-securekeypad-1: #2b2b70;
+    
     --border-gray-1: #e6e6e6;
+    --border-securekeypad-1: #212162;
 
     --text-black-1: #222222;
     --text-black-2: #333333;
     --text-black-3: #444444;
+
+    --text-gray-1: #777777;
+    --text-gray-2: #dddddd;
   }
 
   body {
