@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import Home from './Home';
+import ManagePayment from './ManagePayment';
 
-const StyledHome = styled(Home)`
+const StyledManagePayment = styled(ManagePayment)`
   display: flex;
   height: 100%;
   flex-flow: column;
@@ -15,4 +15,4 @@ const StyledHome = styled(Home)`
   }
 `;
 
-export default StyledHome;
+export default StyledManagePayment;
