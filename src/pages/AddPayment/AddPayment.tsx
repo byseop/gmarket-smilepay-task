@@ -46,6 +46,11 @@ const AddPayment: React.FC<IProps> = ({ className }) => {
   const handleClickSubmitButton = () => {
     setCardList((prev) => prev.concat(form));
     setForm(INIT_FORM);
+    navigate('/add-payment-done', {
+      state: {
+        form
+      }
+    });
   };
 
   return (
