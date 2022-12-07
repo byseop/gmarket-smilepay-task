@@ -15,6 +15,7 @@ export interface IFormState {
   validPeriodMonth: string;
   valudPeriodYear: string;
   password: string;
+  id: string;
 }
 
 const AddCardForm: React.FC<IProps> = ({ className, value, onChange }) => {

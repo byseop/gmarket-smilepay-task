@@ -2,6 +2,8 @@ import { useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as Smilepay from '@components/Smilepay';
 import { Button } from '@components/Atoms';
+import { useLocalStorage } from 'usehooks-ts';
+import { v4 as uuidv4 } from 'uuid';
 
 import type { IFormState } from '@components/Smilepay/AddCardForm';
 
@@ -9,18 +11,23 @@ interface IProps {
   className?: string;
 }
 
+const INIT_FORM: IFormState = {
+  cardNum1: '',
+  cardNum2: '',
+  cardNum3: '',
+  cardNum4: '',
+  password: '',
+  validPeriodMonth: '',
+  valudPeriodYear: '',
+  id: uuidv4()
+};
+
 const AddPayment: React.FC<IProps> = ({ className }) => {
   const navigate = useNavigate();
 
-  const [form, setForm] = useState<IFormState>({
-    cardNum1: '',
-    cardNum2: '',
-    cardNum3: '',
-    cardNum4: '',
-    password: '',
-    validPeriodMonth: '',
-    valudPeriodYear: ''
-  });
+  const [form, setForm] = useState<IFormState>(INIT_FORM);
+
+  const [, setCardList] = useLocalStorage<IFormState[]>('smilepayCardList', []);
 
   const handleChangeForm = useCallback((value: IFormState) => {
     setForm(value);
@@ -34,6 +41,11 @@ const AddPayment: React.FC<IProps> = ({ className }) => {
   /** 뒤로가기 버튼 클릭이벤트 */
   const handleClickBack = () => {
     navigate('/manage-payment');
+  };
+
+  const handleClickSubmitButton = () => {
+    setCardList((prev) => prev.concat(form));
+    setForm(INIT_FORM);
   };
 
   return (
@@ -50,7 +62,7 @@ const AddPayment: React.FC<IProps> = ({ className }) => {
       </div>
 
       <div className="add-card-container">
-        <Button>등록</Button>
+        <Button onClick={handleClickSubmitButton}>등록</Button>
       </div>
     </div>
   );
