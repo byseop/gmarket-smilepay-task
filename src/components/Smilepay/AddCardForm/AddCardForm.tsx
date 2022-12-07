@@ -26,7 +26,7 @@ const AddCardForm: React.FC<IProps> = ({ className, value, onChange }) => {
   /** 일반 인풋 입력이벤트 */
   const handleChangeNormalInput = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!value) return;
-    if (/^[0-9]+$/.test(e.target.value)) {
+    if (/^[0-9]+$/.test(e.target.value) || !e.target.value) {
       // 숫자인지 체크
       onChange?.({
         ...value,
